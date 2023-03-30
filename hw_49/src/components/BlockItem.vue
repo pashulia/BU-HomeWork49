@@ -1,9 +1,17 @@
 <template>
-    <div>Номер блока: {{ block.number }}</div>
-    <div>Хэш блока: {{ block.hash }}</div>
-    <div>Газа использовано: {{ block.gasUsed }}</div>
-    <div>Стоимость: {{ block.baseFeePerGas }}</div>
-    <div>Список транзакций: {{ block.transactions }}</div>
+    <h3>Информация о блоке: </h3>
+    <hr/>
+    <ul>
+        <li>Номер блока: {{ block.number }}</li>
+        <li>Хэш блока: {{ block.hash }}</li>
+        <li>Газа использовано: {{ block.gasUsed }}</li>
+        <li>Стоимость: {{ block.baseFeePerGas }}</li>
+        <p>Список транзакций:</p>
+        <li class="tx" v-for="transaction in block.transactions"> 
+            <a @click="$router.push(`/block/tx/${transaction}`)">{{ transaction }}</a>
+        </li>
+    </ul>
+    
 </template>
 
 <script>
@@ -13,7 +21,7 @@ export default {
     name: "block-item",
     data() {
         return {
-            block: {}
+            block: {},
         }
     },
     props: {
@@ -34,10 +42,21 @@ export default {
         async blockNumberOrHash() {
             this.block = await this.getBlock(this.blockNumberOrHash);
         }
-    }
+    },
+    
 }
 </script>
 
-<style>
-
+<style scoped>
+    h3 {
+        text-align: center;
+    }
+    ul {
+        background-color: #dddbdb;
+        border-radius: 5px;
+    }
+    .tx :hover {
+        color: #071bf5;
+        cursor: pointer;
+    }
 </style>
