@@ -27,7 +27,11 @@ export default createStore({
         },
         async getBlock({ commit }, blockNumberOrHash) {
             return await web3.eth.getBlock(blockNumberOrHash)
-        }    
+        },
+        async getTx({ commit }, transactionHash) {
+            console.log(await web3.eth.getTransaction(transactionHash));
+            return await web3.eth.getTransaction(transactionHash)
+        }     
     },
     modules: {
     }

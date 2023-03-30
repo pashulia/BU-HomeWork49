@@ -5,6 +5,7 @@ import {
 
 import BlockPage from '@/pages/BlockPage';
 import Main from '@/pages/Main';
+import TxPage from '@/pages/TxPage';
 
 const routes = [
     {
@@ -14,8 +15,13 @@ const routes = [
     },
     {
         path: '/block/:blockNumberOrHash',
-        name: 'blockPge',
+        name: 'blockPage',
         component: BlockPage
+    },
+    {
+        path: '/block/tx/:transactionHash',
+        name: 'txPage',
+        component: TxPage
     }
 ]
 
