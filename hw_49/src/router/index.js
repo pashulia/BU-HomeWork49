@@ -3,6 +3,7 @@ import {
   createWebHistory,
 } from 'vue-router';
 
+import BlockPage from '@/pages/BlockPage';
 import Main from '@/pages/Main';
 
 const routes = [
@@ -11,7 +12,11 @@ const routes = [
         name: 'home',
         component: Main
     },
-
+    {
+        path: '/block/:blockNumberOrHash',
+        name: 'blockPge',
+        component: BlockPage
+    }
 ]
 
 const router = createRouter({
