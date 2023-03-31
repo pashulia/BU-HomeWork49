@@ -1,7 +1,7 @@
 <template>
     <ul>
         <li>
-            <button @click="$router.push('/')">Главная страница</button>
+            <a href='/'>Главная страница</a>
         </li>
         <li>
             <input v-model="blockNumberOrHash" placeholder="номер блока или хэш" type="text">
@@ -34,9 +34,9 @@ export default {
 <style scoped>
     ul {
         border: 1px solid black;
-        margin: 10px;
-        padding-top: 10px;
+        padding: 10px;
         border-radius: 5px;
+        list-style-type: none;
     }
     li {
         margin-bottom: 10px;
